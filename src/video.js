@@ -26,7 +26,7 @@
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.playVideo();
-        event.target.mute(); //Quitar para desmutear
+        //event.target.mute(); //Quitar para desmutear
       }
 
       // 5. The API calls this function when the player's state changes.
@@ -35,7 +35,7 @@
       var done = false;
       function onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
+          setTimeout(stopVideo, 10000);
           done = true;
         }
       }
