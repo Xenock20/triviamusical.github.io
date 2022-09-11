@@ -130,3 +130,22 @@ button{
   filter: blur(50px);
 }
 
+@media (max-width: 768px){
+  body{
+    width: 100vh;
+    height: 100vw;
+  }
+
+  body::before{
+    content: "";
+    width: 850px;
+    height: 941px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background-color: var(--azul-oscuro-background);
+    opacity: 95%;
+  }
+}
+
