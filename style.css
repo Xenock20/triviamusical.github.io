@@ -122,14 +122,11 @@ button{
   transform: scale(1.10);
 }
 
-.video{
+#video{
   height: 320px;
   position: relative;
   margin: 0 auto;
   border: solid 5px var(--violeta-oscuro-borde);
-}
-
-#player{
-  filter: blur(20px);
+  filter: blur(50px);
 }
 
