@@ -21,7 +21,7 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 
-.cont-play{
+#cont-play{
   text-align: center;
   min-height: 75vh;
   display: grid;
@@ -67,9 +67,9 @@ img{
   box-shadow: 0 0 10px var(--amarillo), 0 0 15px var(--amarillo), 0 0 80px var(--amarillo);
 }
 
-.trivia{
+#trivia{
   min-height: 75vh;
-  display: grid;
+  display: none;
   place-content: center;
   gap: 50px;
   max-width: 750px;
