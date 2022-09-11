@@ -6,7 +6,10 @@
   --violeta-claro: #A9A7D9;
   --azul-oscuro-background: rgb(2, 18, 38);
   --verde: #02733E;
+  --verde-borde: #014927;
   --amarillo: rgb(198, 217, 59);
+  --rojo: rgb(255, 0, 0);
+  --rojo-borde: rgb(99, 0, 0);
 }
 
 *{

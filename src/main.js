@@ -1,9 +1,46 @@
+// Api de youtube
+
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '310',
+    width: '600',
+    videoId: videosId[0].id, //cargar video atravez de la id
+    playerVars: {
+      autoPlay: 1,
+      controls: 0
+    },
+    events: {
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+let done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    //setTimeout(stopVideo, 10000);
+    done = true;
+  }
+}
+function stopVideo() {
+  player.stopVideo();
+}
+
+const video = document.getElementById('player')
 const game = document.getElementById('trivia')
 const home = document.getElementById('cont-play')
 const play = document.getElementById('play')
 const soundPlay = new Audio('./sound/play.mp3')
 const soundWin = new Audio('./sound/victory.mp3')
 const soundError = new Audio('./sound/error.mp3')
+let playgame = false
 
 const videosId = [
   //{id: 'id del video', title: 'titulo del video'}
@@ -19,47 +56,29 @@ play.addEventListener('click', (e) =>{
 function jugar(){
   home.style.display = 'none'
   game.style.display = 'grid'
+  player.playVideo()
 }
 
-// Api de youtube
+const p1 = document.getElementById('option1')
+const p2 = document.getElementById('option2')
 
-var tag = document.createElement('script');
+p1.addEventListener('click', () =>{
+  soundWin.play()
+  p1.style.background = 'var(--verde)'
+  p1.style.border = '5px solid var(--verde-borde)'
+  p1.style.color = 'white'
+  video.style.filter = 'blur(0px)'
+})
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+p2.addEventListener('click', () =>{
+  soundError.play()
+  p2.style.background = 'var(--rojo)'
+  p2.style.border = '5px solid var(--rojo-borde)'
+  p2.style.color = 'white'
+  video.style.filter = 'blur(0px)'
+})
 
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '310',
-    width: '600',
-    videoId: videosId[0].id, //cargar video atravez de la id
-    playerVars: {
-      autoPlay: 1,
-      controls: 0
-    },
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
 
-function onPlayerReady(event) {
-  event.target.playVideo();
-  event.target.mute(); //Quitar para desmutear
-}
 
-var done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 0);
-    done = true;
-  }
-}
-function stopVideo() {
-  player.stopVideo();
-}
 
 //Para cambiar el titulo de un boton se usa: document.getElementById('option1').innerText = videosId[0].title
