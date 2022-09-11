@@ -2,6 +2,7 @@
 
 :root{
   --violeta-oscuro: #4E458C;
+  --violeta-oscuro-borde: #3b346c;
   --violeta-claro: #A9A7D9;
   --azul-oscuro-background: rgb(2, 18, 38);
   --verde: #02733E;
@@ -15,10 +16,22 @@
 }
 
 body{
-  background-color: var(--azul-oscuro-background);
+  background-image: url(./img/background.jpg);
   display: flex;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
+}
+
+body::before{
+  content: "";
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: var(--azul-oscuro-background);
+  opacity: 95%;
 }
 
 #cont-play{
@@ -33,6 +46,7 @@ h1{
   font-size: 45px;
   color: var(--violeta-claro);
   position: relative;
+  z-index: 2;
 }
 
 .titulo{
@@ -43,7 +57,7 @@ img{
   position: absolute;
   right: 48px;
   top: -10px;
-  z-index: -1;
+  z-index: 1;
 }
 
 
@@ -83,10 +97,6 @@ img{
   margin-top: 50px;
 }
 
-button:last-child, button:first-child, button:nth-child(3){
-  background: var(--verde);
-}
-
 button{
   position: relative;
   margin: 5px 25%;
@@ -96,7 +106,8 @@ button{
   color: var(--azul-oscuro-background);
   font-weight: 500;
   background: var(--violeta-oscuro);
-  border: none;
+  border: 5px solid var(--violeta-oscuro-borde);
+  border-radius: 5px;
   font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
@@ -109,13 +120,13 @@ button{
 }
 
 .video{
+  height: 320px;
   position: relative;
   margin: 0 auto;
+  border: solid 5px var(--violeta-oscuro-borde);
 }
 
 #player{
-  border: 2px solid var(--violeta-oscuro);
-  border-radius: 10px;
-  filter: blur(50px);
+  filter: blur(20px);
 }
 

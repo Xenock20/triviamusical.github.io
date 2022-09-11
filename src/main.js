@@ -4,7 +4,12 @@ const play = document.getElementById('play')
 const soundPlay = new Audio('./sound/play.mp3')
 const soundWin = new Audio('./sound/victory.mp3')
 const soundError = new Audio('./sound/error.mp3')
-const videosId = [{id: 'zbyhx5_tk0o', title: 'YSY A - Vamo A Darle'}] //como declarar un video
+
+const videosId = [
+  //{id: 'id del video', title: 'titulo del video'}
+  {id: 'zbyhx5_tk0o', title: 'YSY A - Vamo A Darle'},
+] 
+
 
 play.addEventListener('click', (e) =>{
   soundPlay.play()
@@ -27,7 +32,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
-    height: '300',
+    height: '310',
     width: '600',
     videoId: videosId[0].id, //cargar video atravez de la id
     playerVars: {
