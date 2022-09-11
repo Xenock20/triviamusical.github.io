@@ -60,12 +60,19 @@ img{
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: box-shadow 0.5s;
+  transition: background 0.5s, box-shadow 0.5s;
 }
 
 #play:hover{
-  box-shadow: 0 0 10px var(--amarillo), 0 0 15px var(--amarillo), 0 0 80px var(--amarillo);
+  box-shadow: 0 0 10px var(--amarillo), 0 0 12px var(--amarillo), 0 0 60px var(--amarillo);
 }
+
+#play:focus{
+  background: var(--verde);
+  box-shadow: 0 0 10px var(--verde), 0 0 15px var(--verde), 0 0 80px var(--verde);
+  color: white;
+}
+
 
 #trivia{
   min-height: 75vh;
@@ -96,7 +103,7 @@ button{
   transition: transform 0.2s, color 0.1s;
 }
 
-button:hover{
+.options > button:hover{
   color: white;
   transform: scale(1.10);
 }

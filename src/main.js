@@ -1,9 +1,13 @@
 const game = document.getElementById('trivia')
 const home = document.getElementById('cont-play')
 const play = document.getElementById('play')
+const soundPlay = new Audio('./sound/play.mp3')
+const soundWin = new Audio('./sound/victory.mp3')
+const soundError = new Audio('./sound/error.mp3')
 const videosId = [{id: 'zbyhx5_tk0o', title: 'YSY A - Vamo A Darle'}] //como declarar un video
 
 play.addEventListener('click', (e) =>{
+  soundPlay.play()
   setTimeout(jugar , 2000)
 })
 
