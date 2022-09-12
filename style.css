@@ -149,3 +149,75 @@ button{
   }
 }
 
+@media (max-width: 425px){
+  body::before{
+    content: "";
+    width: 850px;
+    height: 1700px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background-color: var(--azul-oscuro-background);
+    opacity: 95%;
+  }
+
+  #cont-play{
+    text-align: center;
+    min-height: 175vh;
+    display: grid;
+    place-content: center;
+    gap: 200px;
+  }
+
+  #trivia{
+    min-height: 150vh;
+    display: none;
+    place-content: center;
+    gap: 50px;
+    max-width: 750px;
+    margin-top: 50px;
+  }
+
+  button{
+    width: 550px;
+    height: 150px;
+    margin: 15px 15%;
+    font-size: 24px;
+  }
+
+  #play{
+    width: 325px;
+    height: 175px;
+    font-weight: 800;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 375px){
+  body::before{
+    content: "";
+    width: 850px;
+    height: 1927px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background-color: var(--azul-oscuro-background);
+    opacity: 95%;
+  }
+}
+
+@media (max-width: 320px){
+  body::before{
+    content: "";
+    width: 850px;
+    height: 2258px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    background-color: var(--azul-oscuro-background);
+    opacity: 95%;
+  }
+}
