@@ -124,7 +124,7 @@ button{
 }
 
 #video{
-  height: 320px;
+  height: 210px;
   position: relative;
   margin: 0 auto;
   border: solid 5px var(--violeta-oscuro-borde);
@@ -151,18 +151,29 @@ button{
 /*Convertir en responsive en la parte del juego*/
 
 @media (max-width: 768px){
+  #trivia{
+    max-width: 500px;
+  }
 
+  button{
+  margin: 5px 10%;
+  }
 }
 
 @media (max-width: 425px){
+  #trivia{
+    max-width: 400px;
+    margin: 50px 5%;
+  }
 
-}
+  button{
+    margin: 5px 12%;
+    width: 300px;
 
-@media (max-width: 375px){
+  }
 
-}
-
-@media (max-width: 320px){
-
+  .lv{
+    width: 100px;
+  }
 }
 

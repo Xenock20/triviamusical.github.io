@@ -9,8 +9,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('playerOne', {
-    height: '310',
-    width: '600',
+    height: '200',
+    width: '400',
     videoId: videosId[videoWin].id, //cargar video atravez de la id
     playerVars: {
       autoPlay: 1,
