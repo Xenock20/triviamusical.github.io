@@ -87,8 +87,8 @@ function jugar(){
   home.style.display = 'none'
   game.style.display = 'grid'
   player.playVideo()
+  
   botonWin.innerText = player.videoTitle
-
   botonDefear.innerText = videosId[newArrTitle[0]].title
   botonDefear2.innerText = videosId[newArrTitle[1]].title
   botonDefear3.innerText = videosId[newArrTitle[2]].title
@@ -105,30 +105,25 @@ botonWin.addEventListener('click', () =>{
   video.style.filter = 'none'
 })
 
-botonDefear.addEventListener('click', () =>{
+function botonD(e){
   soundError.play()
-  botonDefear.style.background = 'var(--rojo)'
-  botonDefear.style.border = '5px solid var(--rojo-borde)'
-  botonDefear.style.color = 'white'
+  e.target.style.background = 'var(--rojo)'
+  e.target.style.border = '5px solid var(--rojo-borde)'
+  e.target.style.color = 'white'
+}
+
+botonDefear.addEventListener('click', (e) =>{
+  botonD(e)
 })
 
-botonDefear2.addEventListener('click', () =>{
-  soundError.play()
-  botonDefear2.style.background = 'var(--rojo)'
-  botonDefear2.style.border = '5px solid var(--rojo-borde)'
-  botonDefear2.style.color = 'white'
+botonDefear2.addEventListener('click', (e) =>{
+  botonD(e)
 })
 
-botonDefear3.addEventListener('click', () =>{
-  soundError.play()
-  botonDefear3.style.background = 'var(--rojo)'
-  botonDefear3.style.border = '5px solid var(--rojo-borde)'
-  botonDefear3.style.color = 'white'
+botonDefear3.addEventListener('click', (e) =>{
+  botonD(e)
 })
 
-botonDefear4.addEventListener('click', () =>{
-  soundError.play()
-  botonDefear4.style.background = 'var(--rojo)'
-  botonDefear4.style.border = '5px solid var(--rojo-borde)'
-  botonDefear4.style.color = 'white'
+botonDefear4.addEventListener('click', (e) =>{
+  botonD(e)
 })
