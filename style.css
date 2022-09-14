@@ -35,6 +35,7 @@ body::before{
 
   background-color: var(--azul-oscuro-background);
   opacity: 95%;
+  z-index: -1;
 }
 
 #cont-play{
@@ -58,7 +59,7 @@ h1{
 
 img{
   position: absolute;
-  right: 38px;
+  right: 48px;
   top: -10px;
   z-index: 1;
 }
@@ -131,94 +132,37 @@ button{
   pointer-events: none;
 }
 
-@media (max-width: 768px){
-  body{
-    width: 100vh;
-    height: 100vw;
-  }
+.lvs{
+  margin: 0 auto;
+  display: flex;
+}
 
-  body::before{
-    content: "";
-    width: 850px;
-    height: 941px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  
-    background-color: var(--azul-oscuro-background);
-    opacity: 95%;
-  }
+.lv{
+  margin: 0 10px;
+  width: 150px;
+  height: 25px;
+  border-radius: 20px;
+  border: solid 2px var(--violeta-oscuro-borde);
+  background-color: var(--violeta-oscuro);
+  text-align: center;
+}
+
+
+/*Convertir en responsive en la parte del juego*/
+
+@media (max-width: 768px){
+
 }
 
 @media (max-width: 425px){
-  body::before{
-    content: "";
-    width: 850px;
-    height: 1700px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  
-    background-color: var(--azul-oscuro-background);
-    opacity: 95%;
-  }
 
-  #cont-play{
-    text-align: center;
-    min-height: 175vh;
-    display: grid;
-    place-content: center;
-    gap: 200px;
-  }
-
-  #trivia{
-    min-height: 150vh;
-    display: none;
-    place-content: center;
-    gap: 50px;
-    max-width: 750px;
-    margin-top: 50px;
-  }
-
-  button{
-    width: 550px;
-    height: 150px;
-    margin: 15px 15%;
-    font-size: 24px;
-  }
-
-  #play{
-    width: 325px;
-    height: 175px;
-    font-weight: 800;
-    font-size: 24px;
-  }
 }
 
 @media (max-width: 375px){
-  body::before{
-    content: "";
-    width: 850px;
-    height: 1927px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  
-    background-color: var(--azul-oscuro-background);
-    opacity: 95%;
-  }
+
 }
 
 @media (max-width: 320px){
-  body::before{
-    content: "";
-    width: 850px;
-    height: 2258px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  
-    background-color: var(--azul-oscuro-background);
-    opacity: 95%;
-  }
+
 }
+

@@ -31,6 +31,15 @@ const video = document.getElementById('video')
 const game = document.getElementById('trivia')
 const home = document.getElementById('cont-play')
 const play = document.getElementById('play')
+const lv1 = document.getElementById('lv1')
+let point1 = 100
+lv1.innerText = point1
+const lv2 = document.getElementById('lv2')
+let point2 = 100
+lv2.innerText = point2
+const lv3 = document.getElementById('lv3')
+let point3 = 100
+lv3.innerText = point3
 const soundPlay = new Audio('./sound/play.mp3')
 const soundWin = new Audio('./sound/victory.mp3')
 const soundError = new Audio('./sound/error.mp3')
@@ -39,7 +48,7 @@ const numRandomBoton = Math.floor(Math.random() * 4)
 const botonWin = document.getElementById(`option${numRandomBoton}`)
 const arrTitle = []
 
-while(arrTitle.length < 6){
+while(arrTitle.length < 8){
 
   let n = Math.floor(Math.random() * 15)
 
@@ -57,6 +66,7 @@ const botonDefear = document.getElementById(`option${newArr[0]}`)
 const botonDefear2 = document.getElementById(`option${newArr[1]}`)
 const botonDefear3 = document.getElementById(`option${newArr[2]}`)
 const botonDefear4 = document.getElementById(`option${newArr[3]}`)
+const botones = document.querySelectorAll('.btn')
 
 const videosId = [
   //{id: 'id del video', title: 'titulo'}
@@ -87,7 +97,7 @@ function jugar(){
   home.style.display = 'none'
   game.style.display = 'grid'
   player.playVideo()
-  
+
   botonWin.innerText = player.videoTitle
   botonDefear.innerText = videosId[newArrTitle[0]].title
   botonDefear2.innerText = videosId[newArrTitle[1]].title
@@ -95,14 +105,16 @@ function jugar(){
   botonDefear4.innerText = videosId[newArrTitle[3]].title
 }
 
-  console.log()
-
 botonWin.addEventListener('click', () =>{
   soundWin.play()
   botonWin.style.background = 'var(--verde)'
   botonWin.style.border = '5px solid var(--verde-borde)'
   botonWin.style.color = 'white'
   video.style.filter = 'none'
+  lv1.style.backgroundColor = 'var(--verde)'
+  botones.forEach(ele => {
+    ele.style.pointerEvents = 'none'
+  });
 })
 
 function botonD(e){
@@ -110,6 +122,8 @@ function botonD(e){
   e.target.style.background = 'var(--rojo)'
   e.target.style.border = '5px solid var(--rojo-borde)'
   e.target.style.color = 'white'
+  point1 -= 20
+  lv1.innerHTML = point1
 }
 
 botonDefear.addEventListener('click', (e) =>{
