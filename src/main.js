@@ -14,24 +14,16 @@ function onYouTubeIframeAPIReady() {
     videoId: videosId[videoWin].id, //cargar video atravez de la id
     playerVars: {
       autoPlay: 1,
-      controls: 0
+      controls: 0,
+      disablekb: 0
     },
-    events: {
-      'onStateChange': onPlayerStateChange
-    }
   });
 }
 
-let done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    //setTimeout(stopVideo, 10000);
-    done = true;
-  }
-}
 function stopVideo() {
   player.stopVideo();
 }
+
 
 //Fin de la api de youtube
 
@@ -45,6 +37,18 @@ const soundError = new Audio('./sound/error.mp3')
 const videoWin = Math.floor(Math.random() * 15)
 const numRandomBoton = Math.floor(Math.random() * 4)
 const botonWin = document.getElementById(`option${numRandomBoton}`)
+const arrTitle = []
+
+while(arrTitle.length < 6){
+
+  let n = Math.floor(Math.random() * 15)
+
+  if(n !== videoWin){
+    arrTitle.push(n)
+  }
+}
+
+const newArrTitle = [...new Set(arrTitle)]
 
 const arr = [0,1,2,3,4]
 const newArr = arr.filter(ele => ele !== numRandomBoton)
@@ -74,9 +78,7 @@ const videosId = [
   {id: 'DeE8gnjfsrA', title: 'YSY A - Pasa que yo (prod. yesan) | #YSYA2020 Vol. 4'},
 ] 
 
-console.log(videosId.length - 1)
-
-play.addEventListener('click', (e) =>{
+play.addEventListener('click', () =>{
   soundPlay.play()
   setTimeout(jugar , 2000)
 })
@@ -86,10 +88,11 @@ function jugar(){
   game.style.display = 'grid'
   player.playVideo()
   botonWin.innerText = player.videoTitle
-  botonDefear.innerText = videosId[Math.floor(Math.random() * 15)].title
-  botonDefear2.innerText = videosId[Math.floor(Math.random() * 15)].title
-  botonDefear3.innerText = videosId[Math.floor(Math.random() * 15)].title
-  botonDefear4.innerText = videosId[Math.floor(Math.random() * 15)].title
+
+  botonDefear.innerText = videosId[newArrTitle[0]].title
+  botonDefear2.innerText = videosId[newArrTitle[1]].title
+  botonDefear3.innerText = videosId[newArrTitle[2]].title
+  botonDefear4.innerText = videosId[newArrTitle[3]].title
 }
 
   console.log()
