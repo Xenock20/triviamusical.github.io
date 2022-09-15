@@ -6,9 +6,11 @@ tag.src = "https://www.youtube.com/iframe_api";
 let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-let player;
+let player1
+let player2
+//let player3
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('playerOne', {
+  player1 = new YT.Player('playerOne', {
     height: '200',
     width: '400',
     videoId: videosId[videoWin].id, //cargar video atravez de la id
@@ -18,16 +20,37 @@ function onYouTubeIframeAPIReady() {
       disablekb: 0
     },
   });
-}
 
-function stopVideo() {
-  player.stopVideo();
-}
+  player2 = new YT.Player('playerTwo', {
+    height: '200',
+    width: '400',
+    videoId: videosId[0].id, //cargar video atravez de la id
+    playerVars: {
+      autoPlay: 1,
+      controls: 0,
+      disablekb: 0
+    },
+  });
 
+  /*
+  player3 = new YT.Player('playerThre', {
+    height: '200',
+    width: '400',
+    videoId: videosId[1].id, //cargar video atravez de la id
+    playerVars: {
+      autoPlay: 1,
+      controls: 0,
+      disablekb: 0
+    },
+  });*/
+}
 
 //Fin de la api de youtube
 
-const video = document.getElementById('video')
+let level = 1
+const video1 = document.getElementById('vl1')
+const video2 = document.getElementById('vl2')
+const video3 = document.getElementById('vl3')
 const game = document.getElementById('trivia')
 const home = document.getElementById('cont-play')
 const play = document.getElementById('play')
@@ -44,11 +67,21 @@ const soundPlay = new Audio('./sound/play.mp3')
 const soundWin = new Audio('./sound/victory.mp3')
 const soundError = new Audio('./sound/error.mp3')
 const videoWin = Math.floor(Math.random() * 15)
-const numRandomBoton = Math.floor(Math.random() * 4)
-const botonWin = document.getElementById(`option${numRandomBoton}`)
+const numRandomBoton1 = Math.floor(Math.random() * 4)
+const numRandomBoton2 = Math.floor(Math.random() * 4)
+//const numRandomBoton3 = Math.floor(Math.random() * 4)
+const botonWin1 = document.getElementById(`option${numRandomBoton1}`)
+const botonWin2 = document.getElementById(`option${numRandomBoton2}`)
+//const botonWin3 = document.getElementById(`option${numRandomBoton3}`)
+console.log(botonWin1)
+console.log(botonWin2)
+//console.log(botonWin3)
+
+const next = document.getElementById('next')
+
 const arrTitle = []
 
-while(arrTitle.length < 8){
+while(arrTitle.length < 100){
 
   let n = Math.floor(Math.random() * 15)
 
@@ -60,13 +93,13 @@ while(arrTitle.length < 8){
 const newArrTitle = [...new Set(arrTitle)]
 
 const arr = [0,1,2,3,4]
-const newArr = arr.filter(ele => ele !== numRandomBoton)
+const newArr = arr.filter(ele => ele !== numRandomBoton1)
 
 const botonDefear = document.getElementById(`option${newArr[0]}`)
 const botonDefear2 = document.getElementById(`option${newArr[1]}`)
 const botonDefear3 = document.getElementById(`option${newArr[2]}`)
 const botonDefear4 = document.getElementById(`option${newArr[3]}`)
-const botones = document.querySelectorAll('.btn')
+const botones = document.querySelectorAll('.op')
 
 const videosId = [
   //{id: 'id del video', title: 'titulo'}
@@ -96,26 +129,36 @@ play.addEventListener('click', () =>{
 function jugar(){
   home.style.display = 'none'
   game.style.display = 'grid'
-  player.playVideo()
-
-  botonWin.innerText = player.videoTitle
-  botonDefear.innerText = videosId[newArrTitle[0]].title
-  botonDefear2.innerText = videosId[newArrTitle[1]].title
-  botonDefear3.innerText = videosId[newArrTitle[2]].title
-  botonDefear4.innerText = videosId[newArrTitle[3]].title
+  
+  plv1()
 }
 
-botonWin.addEventListener('click', () =>{
+function botonW(e){
   soundWin.play()
-  botonWin.style.background = 'var(--verde)'
-  botonWin.style.border = '5px solid var(--verde-borde)'
-  botonWin.style.color = 'white'
-  video.style.filter = 'none'
+  e.target.style.background = 'var(--verde)'
+  e.target.style.border = '5px solid var(--verde-borde)'
+  e.target.style.color = 'white'
+  video1.style.filter = 'none'
   lv1.style.backgroundColor = 'var(--verde)'
+
+  notclicked()
+
+  level++
+
+  next.style.display = 'block'
+}
+
+function notclicked(){
   botones.forEach(ele => {
     ele.style.pointerEvents = 'none'
   });
-})
+}
+
+function clicked(){
+  botones.forEach(ele => {
+    ele.style.pointerEvents = 'auto'
+  });
+}
 
 function botonD(e){
   soundError.play()
@@ -141,3 +184,82 @@ botonDefear3.addEventListener('click', (e) =>{
 botonDefear4.addEventListener('click', (e) =>{
   botonD(e)
 })
+
+next.addEventListener('click', (e) =>{
+  if(level === 2){
+    plv2()
+    next.style.display = 'none'
+  }
+  
+  /*if(level === 3){
+    plv3()
+    next.style.display = 'none'
+  }*/
+
+  clicked()
+})
+
+function plv1(){
+  player1.playVideo()
+
+  botonWin1.addEventListener('click', (e) =>{
+    botonW(e)
+  })
+
+  botonWin1.innerText = player1.videoTitle
+  botonDefear.innerText = videosId[newArrTitle[0]].title
+  botonDefear2.innerText = videosId[newArrTitle[1]].title
+  botonDefear3.innerText = videosId[newArrTitle[2]].title
+  botonDefear4.innerText = videosId[newArrTitle[3]].title
+}
+
+function plv2(){
+  player1.stopVideo();
+
+  lv1.style.border = 'solid 2px var(--violeta-oscuro-borde)'
+  lv2.style.border = 'solid 2px white';
+  video1.style.display = 'none'
+  video2.style.display = 'block'
+
+  botonWin2.addEventListener('click', (e) =>{
+    botonW(e)
+  })
+
+  botonWin2.innerText = player2.videoTitle
+  botonDefear.innerText = videosId[newArrTitle[4]].title
+  botonDefear2.innerText = videosId[newArrTitle[5]].title
+  botonDefear3.innerText = videosId[newArrTitle[6]].title
+  botonDefear4.innerText = videosId[newArrTitle[7]].title
+}
+
+/*
+function plv3(){
+  player2.stopVideo();
+
+  lv2.style.border = 'solid 2px var(--violeta-oscuro-borde)'
+  lv3.style.border = 'solid 2px white';
+  video2.style.display = 'none'
+  video3.style.display = 'block'
+
+  botonWin3.addEventListener('click', (e) =>{
+    botonW(e)
+  })
+
+  botonWin3.innerText = player3.videoTitle
+  botonDefear.innerText = videosId[newArrTitle[8]].title
+  botonDefear2.innerText = videosId[newArrTitle[9]].title
+  botonDefear3.innerText = videosId[newArrTitle[10]].title
+  botonDefear4.innerText = videosId[newArrTitle1[1]].title
+}
+*/
+
+
+//TRABAJO POR REALIZAR
+
+/*
+*Arreglar los titulos
+*Agregar cambio alateorio para los videos
+*Desactivar boton ya apretado
+
+*Agregar tercer nivel
+*/
