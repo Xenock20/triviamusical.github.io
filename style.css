@@ -105,7 +105,7 @@ img{
   min-height: 75vh;
   display: none;
   place-content: center;
-  gap: 50px;
+  gap: 25px;
   max-width: 750px;
   margin-top: 50px;
 }
@@ -198,7 +198,7 @@ button{
   }
 
   button{
-  margin: 5px 10%;
+  margin: 5px 13%;
   }
 }
 
@@ -220,7 +220,15 @@ button{
 }
 
 @media (max-width: 375px){
-  #video{
+  #video1{
+    display: none;
+  }
+
+  #video2{
+    display: none;
+  }
+
+  #video3{
     display: none;
   }
 

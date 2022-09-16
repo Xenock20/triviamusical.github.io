@@ -99,8 +99,6 @@ while(arrTitle.length < 150){
 
 const newArrTitle = [...new Set(arrTitle)]
 
-console.log(newArrTitle)
-
 const arr = [0,1,2,3,4]
 const newArrLv1 = arr.filter(ele => ele !== numRandomBoton1)
 const newArrLv2 = arr.filter(ele => ele !== numRandomBoton2)
