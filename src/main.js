@@ -377,10 +377,3 @@ function plv3(){
 reset.addEventListener('click', () => {
   location.reload();
 })
-
-//TRABAJO POR REALIZAR
-
-/*
-*Agregar cambio alateorio para los videos
-*Desactivar boton ya apretado
-*/
