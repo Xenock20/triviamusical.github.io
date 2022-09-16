@@ -39,7 +39,7 @@ body::before{
   z-index: -1;
 }
 
-#cont-play{
+#cont-play, .point{
   text-align: center;
   min-height: 75vh;
   display: grid;
@@ -47,11 +47,19 @@ body::before{
   gap: 200px;
 }
 
+.point{
+  display: none;
+}
+
 h1{
   font-size: 45px;
   color: var(--violeta-claro);
   position: relative;
   z-index: 2;
+}
+
+span{
+  color: var(--amarillo);
 }
 
 .titulo{
@@ -66,7 +74,7 @@ img{
 }
 
 
-#play{
+#play, .reset{
   margin: 0 auto;
   font-family: 'Poppins', sans-serif;
   width: 225px;
@@ -82,7 +90,7 @@ img{
   transition: background 0.5s, box-shadow 0.5s;
 }
 
-#play:hover{
+#play:hover, .reset:hover{
   box-shadow: 0 0 10px var(--amarillo), 0 0 12px var(--amarillo), 0 0 60px var(--amarillo);
 }
 
@@ -125,17 +133,17 @@ button{
 }
 
 #vl1{
-  /*filter: blur(50px);*/
+  filter: blur(50px);
   display: block;
 }
 
 #vl2{
-  /*filter: blur(50px);*/
+  filter: blur(50px);
   display: none;
 }
 
 #vl3{
-  /*filter: blur(50px);*/
+  filter: blur(50px);
   display: none;
 }
 
