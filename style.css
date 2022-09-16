@@ -73,6 +73,9 @@ img{
   z-index: 1;
 }
 
+.btn-next{
+  height: 60px;
+}
 
 #play, .reset{
   margin: 0 auto;
