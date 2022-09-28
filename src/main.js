@@ -74,6 +74,13 @@ const videosId = [
   {id: 'xGIsFhzg9NA', title: 'Ecko, Khea, Seven Kayne & Iacho - Rebota (Prod. by Omar Varela)'},
   {id: 'ucD-T9hH7-w', title: 'Frijo - LIKE BOSS Remix ft. Moonkey, Polimá, Akapellah, Duki, Santoz, Zanto [Lyrics Video]'},
   {id: 'DeE8gnjfsrA', title: 'YSY A - Pasa que yo (prod. yesan) | #YSYA2020 Vol. 4'},
+  {id: 'QwdS2MQyhN0', title: 'WOS - PUAJ (sesión)'},
+  {id: 'BZNtxpO9DoA', title: 'WOS - MELON VINO (Video Oficial)'},
+  {id: 'Yu7LlLUR2es', title: 'DUKI - Si Te Sentis Sola (Video Oficial). Shot by Ballve'},
+  {id: 'FRthkpJ_NFo', title: 'DUKI - Goteo (Video Oficial)'},
+  {id: 'OfrbxBevn44', title: 'DUKI, Ysy A, C.R.O - Hijo de la Noche (Video Oficial)'},
+  {id: 'GxRxYTJ4J1I', title: 'Bhavi ft. Seven Kayne - Besame (Prod. by Halpe)'},
+
 ] 
 
 const lv1 = document.getElementById('lv1')
