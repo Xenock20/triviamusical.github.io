@@ -168,6 +168,7 @@ function clicked(){
 }
 
 function botonD(e){
+  soundError.currentTime = 0
   soundError.play()
   e.target.style.background = 'var(--rojo)'
   e.target.style.border = '5px solid var(--rojo-borde)'
