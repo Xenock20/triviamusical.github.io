@@ -56,56 +56,6 @@ const home = document.getElementById('cont-play')
 const play = document.getElementById('play')
 const reset = document.getElementById('r')
 
-const lv1 = document.getElementById('lv1')
-let point1 = 100
-lv1.innerText = point1
-const lv2 = document.getElementById('lv2')
-let point2 = 100
-lv2.innerText = point2
-const lv3 = document.getElementById('lv3')
-let point3 = 100
-lv3.innerText = point3
-
-const puntos = document.getElementById('puntos')
-const soundPlay = new Audio('./sound/play.mp3')
-const soundWin = new Audio('./sound/victory.mp3')
-const soundError = new Audio('./sound/error.mp3')
-
-const videoWin1 = Math.floor(Math.random() * 15)
-const videoWin2 = Math.floor(Math.random() * 15)
-const videoWin3 = Math.floor(Math.random() * 15)
-
-const numRandomBoton1 = Math.floor(Math.random() * 4)
-const numRandomBoton2 = Math.floor(Math.random() * 4)
-const numRandomBoton3 = Math.floor(Math.random() * 4)
-let botonWin
-let botonDefear
-let botonDefear2
-let botonDefear3
-let botonDefear4
-
-const next = document.getElementById('next')
-
-const arrTitle = []
-
-while(arrTitle.length < 150){
-
-  let n = Math.floor(Math.random() * 15)
-
-  if(n !== videoWin1 && n !== videoWin2 && n !== videoWin3){
-    arrTitle.push(n)
-  }
-}
-
-const newArrTitle = [...new Set(arrTitle)]
-
-const arr = [0,1,2,3,4]
-const newArrLv1 = arr.filter(ele => ele !== numRandomBoton1)
-const newArrLv2 = arr.filter(ele => ele !== numRandomBoton2)
-const newArrLv3 = arr.filter(ele => ele !== numRandomBoton3)
-
-const botones = document.querySelectorAll('.op')
-
 const videosId = [
   //{id: 'id del video', title: 'titulo'}
   {id: '-10ZXMMc4x4', title: 'YSY A - Silbando (prod. Club Hats) | #YSYA2020 Vol. 5'},
@@ -125,6 +75,70 @@ const videosId = [
   {id: 'ucD-T9hH7-w', title: 'Frijo - LIKE BOSS Remix ft. Moonkey, Polimá, Akapellah, Duki, Santoz, Zanto [Lyrics Video]'},
   {id: 'DeE8gnjfsrA', title: 'YSY A - Pasa que yo (prod. yesan) | #YSYA2020 Vol. 4'},
 ] 
+
+const lv1 = document.getElementById('lv1')
+let point1 = 100
+lv1.innerText = point1
+const lv2 = document.getElementById('lv2')
+let point2 = 100
+lv2.innerText = point2
+const lv3 = document.getElementById('lv3')
+let point3 = 100
+lv3.innerText = point3
+
+const puntos = document.getElementById('puntos')
+const soundPlay = new Audio('./sound/play.mp3')
+const soundWin = new Audio('./sound/victory.mp3')
+const soundError = new Audio('./sound/error.mp3')
+
+const numVideos = videosId.length - 1
+
+const arrWin = []
+
+while(arrWin.length < 15){
+
+  let n = Math.floor(Math.random() * numVideos)
+
+  arrWin.push(n)
+
+}
+
+const newArrWin = [...new Set(arrWin)]
+
+const videoWin1 = newArrWin[0]
+const videoWin2 = newArrWin[1]
+const videoWin3 = newArrWin[2]
+
+const numRandomBoton1 = Math.floor(Math.random() * 4)
+const numRandomBoton2 = Math.floor(Math.random() * 4)
+const numRandomBoton3 = Math.floor(Math.random() * 4)
+let botonWin
+let botonDefear
+let botonDefear2
+let botonDefear3
+let botonDefear4
+
+const next = document.getElementById('next')
+
+const arrTitle = []
+
+while(arrTitle.length < 150){
+
+  let n = Math.floor(Math.random() * numVideos)
+
+  if(n !== videoWin1 && n !== videoWin2 && n !== videoWin3){
+    arrTitle.push(n)
+  }
+}
+
+const newArrTitle = [...new Set(arrTitle)]
+
+const arr = [0,1,2,3,4]
+const newArrLv1 = arr.filter(ele => ele !== numRandomBoton1)
+const newArrLv2 = arr.filter(ele => ele !== numRandomBoton2)
+const newArrLv3 = arr.filter(ele => ele !== numRandomBoton3)
+
+const botones = document.querySelectorAll('.op')
 
 play.addEventListener('click', () =>{
   soundPlay.play()
